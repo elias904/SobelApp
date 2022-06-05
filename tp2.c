@@ -1,12 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "imagem.h"
-#include "SeamCarving.h"
+#include "Seamcarving.h"
 
-void main()
+int main()
 {
 
     Imagem ImagemEntrada;
-    char *NomeArqEntrada = "bird.ppm";
+
+    char *NomeArqEntrada = "Imagem.txt";
 
     ImagemEntrada = lerArquivoPPM(NomeArqEntrada);
 
@@ -17,4 +19,6 @@ void main()
     ImagemEntrada = MatrizDinamica(ImagemEntrada);
 
     ImagemEntrada = PintaDeVerde(ImagemEntrada);
+
+    return 1;
 }

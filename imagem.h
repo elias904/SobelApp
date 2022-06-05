@@ -5,8 +5,8 @@
 
 typedef struct
 {
-    int R,G,B;
-    int x,y;
+    int R, G, B;
+    int x, y;
     float Energia;
     float IL;
 } Pixel;

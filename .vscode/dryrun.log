@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/mendeszika/Documentos/TP2 - Sabado'
+gcc -g tp2.c imagem.c Seamcarving.c Sup.c -o a.out -lm
+make: Leaving directory '/home/mendeszika/Documentos/TP2 - Sabado'
+ 
