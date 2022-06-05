@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "imagem.h": "c",
+        "stdio.h": "c"
+    }
+}
