@@ -187,21 +187,25 @@ Imagem PintaDeVerde(Imagem ImagemEntrada)
         float Menor = ImagemEntrada.RGB[ImagemEntrada.altura - 1][0].Energia;
 
         if (ImagemEntrada.RGB[ImagemEntrada.altura - 1][x].Energia < Menor)
-            Menor = ImagemEntrada.RGB[ImagemEntrada.altura - 1][x].Energia, Start = x;
+            Start = x;
     }
 
     int i = ImagemEntrada.altura - 1; // Ultima linha
     int j = Start;
 
+    printf("\nValores: %d e %d\n", i, j);
+
     // Pinto o primeiro de Verde
     ImagemEntrada.RGB[ImagemEntrada.altura - 1][j].R = 0;
-    ImagemEntrada.RGB[ImagemEntrada.altura - 1][j].G = 128;
+    ImagemEntrada.RGB[ImagemEntrada.altura - 1][j].G = 255;
     ImagemEntrada.RGB[ImagemEntrada.altura - 1][j].B = 0;
 
-    while (i >= 0)
+    while (i > 0)
     {
+        printf("- %d-", i);
         if (j > 0 && j < ImagemEntrada.largura - 1)
         {
+            printf("Centro");
             float A = 0;
             float B = 0;
             float C = 0;
@@ -216,7 +220,7 @@ Imagem PintaDeVerde(Imagem ImagemEntrada)
             if (Temp == A)
             {
                 ImagemEntrada.RGB[i - 1][j - 1].R = 0;
-                ImagemEntrada.RGB[i - 1][j - 1].G = 128;
+                ImagemEntrada.RGB[i - 1][j - 1].G = 255;
                 ImagemEntrada.RGB[i - 1][j - 1].B = 0;
                 i = i - 1;
                 j = j - 1;
@@ -224,14 +228,14 @@ Imagem PintaDeVerde(Imagem ImagemEntrada)
             else if (Temp == B)
             {
                 ImagemEntrada.RGB[i - 1][j].R = 0;
-                ImagemEntrada.RGB[i - 1][j].G = 128;
+                ImagemEntrada.RGB[i - 1][j].G = 255;
                 ImagemEntrada.RGB[i - 1][j].B = 0;
                 i = i - 1;
             }
             else
             {
                 ImagemEntrada.RGB[i - 1][j + 1].R = 0;
-                ImagemEntrada.RGB[i - 1][j + 1].G = 128;
+                ImagemEntrada.RGB[i - 1][j + 1].G = 255;
                 ImagemEntrada.RGB[i - 1][j + 1].B = 0;
                 i = i - 1;
                 j = j + 1;
@@ -241,6 +245,7 @@ Imagem PintaDeVerde(Imagem ImagemEntrada)
         {
             if (j == 0) // Esquerda
             {
+                printf("Esquerda");
                 float A = 0;
                 float B = 0;
 
@@ -252,14 +257,14 @@ Imagem PintaDeVerde(Imagem ImagemEntrada)
                 if (Temp == A)
                 {
                     ImagemEntrada.RGB[i - 1][j].R = 0;
-                    ImagemEntrada.RGB[i - 1][j].G = 128;
+                    ImagemEntrada.RGB[i - 1][j].G = 255;
                     ImagemEntrada.RGB[i - 1][j].B = 0;
                     i = i - 1;
                 }
                 else if (Temp == B)
                 {
                     ImagemEntrada.RGB[i - 1][j + 1].R = 0;
-                    ImagemEntrada.RGB[i - 1][j + 1].G = 128;
+                    ImagemEntrada.RGB[i - 1][j + 1].G = 255;
                     ImagemEntrada.RGB[i - 1][j + 1].B = 0;
                     i = i - 1;
                     j = j + 1;
@@ -267,6 +272,7 @@ Imagem PintaDeVerde(Imagem ImagemEntrada)
             }
             if (j == ImagemEntrada.largura - 1) // Direita
             {
+                printf("Direita");
                 float A = 0;
                 float B = 0;
 
@@ -278,14 +284,14 @@ Imagem PintaDeVerde(Imagem ImagemEntrada)
                 if (Temp == A)
                 {
                     ImagemEntrada.RGB[i - 1][j].R = 0;
-                    ImagemEntrada.RGB[i - 1][j].G = 128;
+                    ImagemEntrada.RGB[i - 1][j].G = 255;
                     ImagemEntrada.RGB[i - 1][j].B = 0;
                     i = i - 1;
                 }
                 else
                 {
                     ImagemEntrada.RGB[i - 1][j - 1].R = 0;
-                    ImagemEntrada.RGB[i - 1][j - 1].G = 128;
+                    ImagemEntrada.RGB[i - 1][j - 1].G = 255;
                     ImagemEntrada.RGB[i - 1][j - 1].B = 0;
                     i = i - 1;
                     j = j - 1;
@@ -294,4 +300,115 @@ Imagem PintaDeVerde(Imagem ImagemEntrada)
         }
     }
     imprimirImagem(ImagemEntrada);
+}
+
+Imagem RetiraCaminhos(Imagem ImagemEntrada)
+{
+
+    Imagem ImagemSaida;
+
+    ImagemSaida = criaImagem(ImagemEntrada.altura, ImagemEntrada.largura - 1);
+    int Start = 0;
+
+    // Após ter montado a matriz dinamica, sabemos que a soma dos caminhos ficou na ultima linha
+    // a partir disso basta pegar a menor soma na ultima linha
+    for (int x = 0; x < ImagemEntrada.largura; x++)
+    {
+        float Menor = ImagemEntrada.RGB[ImagemEntrada.altura - 1][0].Energia;
+
+        if (ImagemEntrada.RGB[ImagemEntrada.altura - 1][x].Energia < Menor)
+            Start = x;
+    }
+
+    int i = ImagemEntrada.altura - 1; // Ultima linha
+    int j = Start;
+
+    ImagemEntrada.RGB[ImagemEntrada.altura - 1][j].Energia = -1;
+
+    while (i > 0)
+    {
+        printf("- %d-", i);
+        if (j > 0 && j < ImagemEntrada.largura - 1)
+        {
+            printf("Centro");
+            float A = 0;
+            float B = 0;
+            float C = 0;
+
+            A = ImagemEntrada.RGB[i - 1][j - 1].Energia;
+
+            B = ImagemEntrada.RGB[i - 1][j].Energia;
+
+            C = ImagemEntrada.RGB[i - 1][j + 1].Energia;
+
+            float Temp = ValorDinamicoMid(A, B, C);
+            if (Temp == A)
+            {
+                ImagemEntrada.RGB[i - 1][j - 1].Energia = -1;
+                i = i - 1;
+                j = j - 1;
+            }
+            else if (Temp == B)
+            {
+                ImagemEntrada.RGB[i - 1][j].Energia = -1;
+                i = i - 1;
+            }
+            else
+            {
+                ImagemEntrada.RGB[i - 1][j + 1].Energia = -1;
+                i = i - 1;
+                j = j + 1;
+            }
+        }
+        else // Borda
+        {
+            if (j == 0) // Esquerda
+            {
+                printf("Esquerda");
+                float A = 0;
+                float B = 0;
+
+                A = ImagemEntrada.RGB[i - 1][j].Energia;
+
+                B = ImagemEntrada.RGB[i - 1][j + 1].Energia;
+
+                float Temp = ValorDinamicoBorda(A, B);
+                if (Temp == A)
+                {
+                    ImagemEntrada.RGB[i - 1][j].Energia= -1;
+                    i = i - 1;
+                }
+                else if (Temp == B)
+                {
+                    ImagemEntrada.RGB[i - 1][j + 1].Energia = -1;
+                    i = i - 1;
+                    j = j + 1;
+                }
+            }
+            if (j == ImagemEntrada.largura - 1) // Direita
+            {
+                printf("Direita");
+                float A = 0;
+                float B = 0;
+
+                A = ImagemEntrada.RGB[i - 1][j].Energia;
+
+                B = ImagemEntrada.RGB[i - 1][j - 1].Energia;
+
+                float Temp = ValorDinamicoBorda(A, B);
+                if (Temp == A)
+                {
+                    ImagemEntrada.RGB[i - 1][j].Energia = -1;
+                    i = i - 1;
+                }
+                else
+                {
+                    ImagemEntrada.RGB[i - 1][j - 1].Energia = -1;
+                    i = i - 1;
+                    j = j - 1;
+                }
+            }
+        }
+    }
+    return ImagemSaida;
 }

@@ -8,7 +8,12 @@ int main()
 
     Imagem ImagemEntrada;
 
-    char *NomeArqEntrada = "Imagem.txt";
+
+    int Caminhos = 0;
+    printf("Quantos Caminhos: ");
+    scanf("%d",&Caminhos);
+
+    char *NomeArqEntrada = "anders.ppm";
 
     ImagemEntrada = lerArquivoPPM(NomeArqEntrada);
 
@@ -18,7 +23,10 @@ int main()
 
     ImagemEntrada = MatrizDinamica(ImagemEntrada);
 
-    ImagemEntrada = PintaDeVerde(ImagemEntrada);
+    for(int count = 0; count < Caminhos; count++)
+    {
+        ImagemEntrada = RetiraCaminhos(ImagemEntrada);
+    }
 
     return 1;
 }

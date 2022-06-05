@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jun  5 09:04:09 2022
+# Make data base, printed on Sun Jun  5 19:20:04 2022
 
 # Variables
 
@@ -15,7 +15,7 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a3018232-6037-4cf6-a31d-b16425f03701.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-611ac34d-4777-452e-9d07-e2d99663205a.sock
 # environment
 LC_NAME = pt_BR.UTF-8
 # environment
@@ -73,7 +73,7 @@ LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXXI9ttNm/agent.979
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXQvRskN/agent.985
 # default
 .SHELLFLAGS := -c
 # environment
@@ -89,7 +89,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 1207
+VSCODE_PID = 6428
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -181,7 +181,7 @@ MAKE_VERSION := 4.3
 # environment
 LC_MEASUREMENT = pt_BR.UTF-8
 # environment
-SSH_AGENT_PID = 1022
+SSH_AGENT_PID = 1031
 # environment
 _ = /usr/share/code/code
 # environment
@@ -231,9 +231,9 @@ LC_IDENTIFICATION = pt_BR.UTF-8
 
 # Directories
 
-# . (device 2049, inode 945814): 18 files, no impossibilities.
+# . (device 2049, inode 945814): 19 files, no impossibilities.
 
-# 18 files, no impossibilities in 1 directories.
+# 19 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -244,7 +244,7 @@ LC_IDENTIFICATION = pt_BR.UTF-8
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-04 22:36:59.316349023
+#  Last modified 2022-06-05 10:28:40.831877219
 #  File has been updated.
 #  Successfully updated.
 
@@ -281,7 +281,7 @@ all:
 # Load=8/32=25%, Rehash=0, Collisions=1/11=9%
  
 #  recipe to execute (from 'Makefile', line 2):
-	gcc -g tp2.c imagem.c Seamcarving.c Sup.c -o a.out -lm
+	gcc -g tp2.c imagem.c Seamcarving.c Sup.c -o Programa -lm
 
 # Not a target:
 .SUFFIXES:
@@ -297,12 +297,12 @@ all:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 206 B / avg = 8 B
-# current buf: size = 8162 B / used = 206 B / count = 23 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 24 / storage = 217 B / avg = 9 B
+# current buf: size = 8162 B / used = 217 B / count = 24 / avg = 9 B
 
-# strcache performance: lookups = 30 / hit rate = 23%
+# strcache performance: lookups = 31 / hit rate = 22%
 # hash-table stats:
-# Load=23/8192=0%, Rehash=0, Collisions=0/30=0%
-# Finished Make data base on Sun Jun  5 09:04:09 2022
+# Load=24/8192=0%, Rehash=0, Collisions=0/31=0%
+# Finished Make data base on Sun Jun  5 19:20:04 2022
 
  
